@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-function Home(){
+function Home({isRegistered}){
     const navigate = useNavigate();
     return (
         <>
@@ -11,9 +11,12 @@ function Home(){
         <button onClick={() => navigate('/leaderboard')}>
             Go to Leaderboard
         </button>
-        <button onClick={() => navigate('/profile')}>
+        {(isRegistered === true) ? (<button onClick={() => navigate('/profile')}>
             Go to Profile
-        </button>
+        </button>) : (<button onClick={() => navigate('/Login')}>
+            Login/SignUp
+        </button>)}
+        
         <button onClick={() => navigate('/setting')}>
             Go to setting
         </button>
